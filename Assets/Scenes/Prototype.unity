@@ -343,6 +343,7 @@ MonoBehaviour:
   activateRange: 5
   sprite1: {fileID: 21300000, guid: 8280cb6212d0d6f489e169880f5d6058, type: 3}
   sprite2: {fileID: 21300000, guid: dbfbe9f3f5f243e42a0ffb9eeb5a3ff0, type: 3}
+  tempsReactivationDouche: 3
   SHOWER: {fileID: 8300000, guid: e6ff81ff9f55fb34d84a92eb59063fc8, type: 3}
   SHOWER_OFF: {fileID: 8300000, guid: 1934b88ccc7cafc4692d822f2af2208c, type: 3}
 --- !u!61 &77856693
@@ -560,7 +561,7 @@ AudioSource:
   m_GameObject: {fileID: 142331472}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243341728956692018, guid: 92e1b8dbdca4ba443abd7f2b35352af0,
+  OutputAudioMixerGroup: {fileID: 243366070469957104, guid: 92e1b8dbdca4ba443abd7f2b35352af0,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3904722ff8fcdf14a866114ccf7c95a8, type: 3}
   m_PlayOnAwake: 0
