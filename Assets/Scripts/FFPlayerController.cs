@@ -106,7 +106,8 @@ public class FFPlayerController : MonoBehaviour
         if (glasses.GetComponent<AFGlassesBehaviour>().Picked())
         {
             realWorld = manager.ChangeWorld();
-            instructionAnim.SetBool("GlassesOn", true);
+            //instructionAnim.SetBool("GlassesOn", true);
+            instructionAnim.SetTrigger("GlassesOn");
             GetComponent<AudioSource>().PlayOneShot(sonLunettes);
         }
 
@@ -118,7 +119,7 @@ public class FFPlayerController : MonoBehaviour
         if (glasses.GetComponent<AFGlassesBehaviour>().Dropped())
         {
             realWorld = manager.ChangeWorld();
-            instructionAnim.SetBool("GlassesOn", false);
+            //instructionAnim.SetBool("GlassesOn", false);
             GetComponent<AudioSource>().PlayOneShot(sonLunettes);
         }
     }
@@ -151,6 +152,7 @@ public class FFPlayerController : MonoBehaviour
 
     public void Fear()
     {
+        animator.SetTrigger("Fear");
         float move = 2f;
         if (facingRight)
         {
