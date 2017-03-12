@@ -105,6 +105,7 @@ public class FFPlayerController : MonoBehaviour
         {
             realWorld = manager.ChangeWorld();
             instructionAnim.SetBool("GlassesOn", true);
+            GetComponent<AudioSource>().PlayOneShot(sonLunettes);
         }
 
     }
@@ -116,6 +117,7 @@ public class FFPlayerController : MonoBehaviour
         {
             realWorld = manager.ChangeWorld();
             instructionAnim.SetBool("GlassesOn", false);
+            GetComponent<AudioSource>().PlayOneShot(sonLunettes);
         }
     }
 

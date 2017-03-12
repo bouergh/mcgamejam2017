@@ -33,6 +33,15 @@ public class FFTrapBehaviour : MonoBehaviour {
             Debug.Log("Peur !");
         }
     }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && danger && !other.gameObject.GetComponent<FFPlayerController>().realWorld)
+        {
+            other.GetComponent<FFPlayerController>().Fear();
+            GetComponent<AudioSource>().PlayOneShot(sonAction);
+            Debug.Log("Peur !");
+        }
+    }
     //Permet de désactiver le piège
     public void Desactivate()
     {
