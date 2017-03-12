@@ -90,7 +90,6 @@ public class FFPlayerController : MonoBehaviour
         {
             realWorld = false;
             ChangeWorld(realWorld);
-
         }
 
     }
