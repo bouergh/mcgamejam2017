@@ -41,6 +41,7 @@ public class MMTreasureChest : MonoBehaviour {
     {
         if (switchable && !GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().realWorld)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().EndGame();    //so player can't escape
             manager.masterMixer.SetFloat("virtualRealityVol", -80); // cut virtual world sound
             animator.SetBool("TreasureOpen", true); // activate chest opening animation
             GetComponent<AudioSource>().Play(); // play chest opening sound

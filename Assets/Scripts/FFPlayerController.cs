@@ -163,4 +163,11 @@ public class FFPlayerController : MonoBehaviour
         maxSpeed = previousSpeed;
 >>>>>>> a8817856aebf629ed960898612f324cd44940a2e
     }
+
+    public void EndGame()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        animator.SetBool("Move", false);
+        Destroy(this);
+    }
 }
