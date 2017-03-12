@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Danger
   - Oven
+  - Table
   layers:
   - Default
   - TransparentFX

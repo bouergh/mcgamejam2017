@@ -12,6 +12,11 @@ public class MMObjectScript : MonoBehaviour
     Vector3 originPosition;
     Animator animator;
     Animator playerInstructionAnim;
+    [SerializeField]
+    string target; // the tag used to specify a target to drop
+    bool onTarget;
+    [SerializeField]
+    string carryZoneName;
 
     // Use this for initialization
     void Start()
@@ -26,6 +31,7 @@ public class MMObjectScript : MonoBehaviour
             animator.SetBool("isPicked", false);
         }
         playerInstructionAnim = GameObject.Find("Instruction").GetComponent<Animator>();
+        onTarget = false;
     }
 
     // Update is called once per frame
@@ -63,8 +69,8 @@ public class MMObjectScript : MonoBehaviour
     private IEnumerator Pick()
     {
         Debug.Log("pick the object");
-        Transform playerHands = GameObject.FindGameObjectWithTag("Player").transform.Find("Hands");
-        transform.SetParent(playerHands);
+        Transform carryZone = GameObject.FindGameObjectWithTag("Player").transform.Find(carryZoneName);
+        transform.SetParent(carryZone);
         transform.localPosition = Vector3.zero;
         GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().PickObject();
         isPicked = true;
@@ -81,14 +87,21 @@ public class MMObjectScript : MonoBehaviour
 
     private IEnumerator Drop()
     {
-        Debug.Log("drop the object");
-        transform.SetParent(GameObject.Find("Real World").transform);
-        transform.position = new Vector3(transform.position.x, originPosition.y, originPosition.z);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().DropObject();
-        isPicked = false;
-        if (animator) // check is there is an animator for this object
+        if (target == "" || (onTarget)) // if there is no drop target or player is on the target
         {
-            animator.SetBool("isPicked", false);
+            Debug.Log("drop the object");
+            transform.SetParent(GameObject.Find("Real World").transform);
+            transform.position = new Vector3(transform.position.x, originPosition.y, originPosition.z);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().DropObject();
+            isPicked = false;
+            if (animator) // check is there is an animator for this object
+            {
+                animator.SetBool("isPicked", false);
+            }
+        }
+        else // not on the target to drop
+        {
+            GetComponent<AudioSource>().Play(); // play the UH OH sound
         }
         yield return new WaitForSeconds(1f);
         Debug.Log("unlock routine");
@@ -104,6 +117,11 @@ public class MMObjectScript : MonoBehaviour
             playerCanPick = true;
             Debug.Log("pickable");
         }
+        else if (target != "" && other.gameObject.CompareTag(target)) // is on target to drop object
+        {
+            onTarget = true;
+            Debug.Log("on target !");
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -114,6 +132,11 @@ public class MMObjectScript : MonoBehaviour
             playerInstructionAnim.SetTrigger("NoItem");
             playerCanPick = false;
             Debug.Log("not pickable");
+        }
+        else if (target != "" && other.gameObject.CompareTag(target)) // no more on target to drop object
+        {
+            onTarget = false;
+            Debug.Log("leave target !");
         }
     }
 
