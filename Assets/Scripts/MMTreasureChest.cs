@@ -66,7 +66,7 @@ public class MMTreasureChest : MonoBehaviour {
             cookie.GetComponent<Renderer>().enabled = false; // make the cookie invisible
             cookie.GetComponent<AudioSource>().Play(); // play cookie eating sound
             yield return new WaitForSeconds(5f);
-            SceneManager.LoadScene("Credits"); // change to credits scene
+            SceneManager.LoadScene("EndGameCredits"); // change to credits scene
 
         }
         yield return new WaitForSeconds(0.25f);

@@ -12,8 +12,9 @@ public class MMCredits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetButton("Item")) SceneManager.LoadScene("MainMenu");
 	}
+    
 
     public void BackToMenu(string nomScene)
     {

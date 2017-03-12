@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MMRollingText : MonoBehaviour {
 
+    public float endY;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,7 @@ public class MMRollingText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += new Vector3(0f, 1f, 0f);
+        if(transform.position.y < endY)
+            transform.position += new Vector3(0f, 1f, 0f);
 	}
 }

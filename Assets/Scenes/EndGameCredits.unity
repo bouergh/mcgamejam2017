@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &155388200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -281,8 +281,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Congratulations ! \n\n\n\n\n\nYou beat the game.\n\n\n\n\n\nThank you for
-    playing !\n\n\n\n\nAUDIO CREDITS\n\nChild laughing thanks to Hoerspielwerkstatt_HEF\n(https://www.freesound.org/people/Hoerspielwerkstatt_HEF/sounds/273152/)\r\n\nChild
+  m_Text: "Congratulations ! \n\n\n\n\n\nYou beat the game.\n\n\n\n\nThank you for
+    playing !\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGame made by\n\nSOMETHING COOL\n\nfor\n\nMcGameJam
+    2017\n\n\n\n\n\nTEAM MEMBERS\n\n\nOlivier Chrun (https://www.linkedin.com/in/olivierchrun/)\n\n\nFran\xE7ois
+    Ferry (https://www.linkedin.com/in/francoisferry/)\n\n\nArthur Fournier (https://www.linkedin.com/in/arthurfournier/)\n\n\nTallulah
+    Jeong (https://www.artstation.com/artist/tallulah_jeong)\n\n\nMarie Martin (https://www.linkedin.com/in/marie-martin-801365b1/)\n\n\n\n\n\n\n\n\n\n\nAUDIO
+    CREDITS\n\nChild laughing thanks to Hoerspielwerkstatt_HEF\n(https://www.freesound.org/people/Hoerspielwerkstatt_HEF/sounds/273152/)\r\n\nChild
     grunting thanks to SpliceSound\n(https://www.freesound.org/people/SpliceSound/sounds/260188/)\r\n\nChild
     gasping thanks to Topschool\n(https://www.freesound.org/people/Topschool/sounds/360469/)\r\n\nChild
     eating thanks to TinyJiro\n(https://www.freesound.org/people/TinyJiro/sounds/96891/)\r\n\nMenu
@@ -298,7 +302,8 @@ MonoBehaviour:
     sounds thanks to Robinson76\n(https://www.freesound.org/people/Robinhood76/sounds/276682/)\r\n\nTreasure
     chest opening thanks to tmkappelt\n(https://www.freesound.org/people/tmkappelt/sounds/85700/)\r\n\nSuccess
     chime thanks to fins\n(https://www.freesound.org/people/fins/sounds/171670/)\r\n\nEnd
-    credits music thank to urpedersen\n(http://freesound.org/people/urpedersen/sounds/180279/)"
+    credits music thank to urpedersen\n(http://freesound.org/people/urpedersen/sounds/180279/)\n\n\n\n\n\n\n\n\n\n\n\n\n\nPress
+    CTRL to go back to main menu"
 --- !u!222 &455480123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -316,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a313ca95453a579428a13971aaab3c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endY: 2150
 --- !u!1 &626114128
 GameObject:
   m_ObjectHideFlags: 0
