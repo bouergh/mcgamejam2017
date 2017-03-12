@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 43330879}
   - component: {fileID: 43330880}
   m_Layer: 0
-  m_Name: Living Room
+  m_Name: BG Living Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &73026278
 SpriteRenderer:
@@ -897,13 +897,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 992788344}
+  - {fileID: 1073296840}
   - {fileID: 2082893171}
   - {fileID: 1150172526}
   - {fileID: 73026277}
   - {fileID: 2086374405}
   - {fileID: 1455727780}
   - {fileID: 1730302634}
-  - {fileID: 1073296840}
   - {fileID: 1406121766}
   m_Father: {fileID: 1094415433}
   m_RootOrder: 4
@@ -1842,6 +1843,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &992788343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 992788344}
+  - component: {fileID: 992788345}
+  m_Layer: 0
+  m_Name: BG Volcano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &992788344
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992788343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 566175472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &992788345
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992788343}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -783493713
+  m_SortingOrder: -9
+  m_Sprite: {fileID: 21300000, guid: db0a4d6742c157547baaa05eb681adcf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1073296839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,8 +1916,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1073296840}
   - component: {fileID: 1073296841}
+  - component: {fileID: 1073296842}
   m_Layer: 0
-  m_Name: Jungle
+  m_Name: BG Jungle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1869,7 +1935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1073296841
 AudioSource:
@@ -1909,7 +1975,7 @@ AudioSource:
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.1954023
+      value: 0.0057471097
       inSlope: -1.0714285
       outSlope: -1.0714285
       tangentMode: 0
@@ -1952,6 +2018,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!212 &1073296842
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1073296839}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -783493713
+  m_SortingOrder: -9
+  m_Sprite: {fileID: 21300000, guid: db0a4d6742c157547baaa05eb681adcf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1094415432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2113,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1150172527
 SpriteRenderer:
@@ -2075,7 +2176,7 @@ Transform:
   m_GameObject: {fileID: 1174733576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.98, y: -4.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 979678061}
   m_RootOrder: 10
@@ -2141,8 +2242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapAssociated: {fileID: 701233455}
-  solutionAssociated: {fileID: 1412348871}
-  disablingRange: 3
+  solutionAssociated: {fileID: 701233455}
+  disablingRange: 5
 --- !u!1 &1193045622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,7 +2254,7 @@ GameObject:
   - component: {fileID: 1193045623}
   - component: {fileID: 1193045624}
   m_Layer: 0
-  m_Name: Lobby
+  m_Name: BG Lobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,7 +2318,7 @@ GameObject:
   - component: {fileID: 1203523952}
   - component: {fileID: 1203523953}
   m_Layer: 0
-  m_Name: Bathroom
+  m_Name: BG Bathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2456,7 +2557,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1406121767
 SpriteRenderer:
@@ -2598,7 +2699,7 @@ GameObject:
   - component: {fileID: 1455727784}
   - component: {fileID: 1455727782}
   m_Layer: 0
-  m_Name: Volcano
+  m_Name: Lava Pit
   m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2615,7 +2716,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1455727781
 SpriteRenderer:
@@ -2761,7 +2862,7 @@ MonoBehaviour:
   danger: 1
   sprite1: {fileID: 21300000, guid: d3082300b6e165e488f126e4f60ffe71, type: 3}
   sprite2: {fileID: 21300000, guid: 78be7a1addab5374aa0dd6e1fcd2ef6d, type: 3}
-  sonAction: {fileID: 0}
+  sonAction: {fileID: 8300000, guid: 3dca17a0d8c73d64fadf86c992fef44a, type: 3}
 --- !u!1 &1516089326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,7 +3001,7 @@ GameObject:
   - component: {fileID: 1536639823}
   - component: {fileID: 1536639824}
   m_Layer: 0
-  m_Name: Kitchen
+  m_Name: BG Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2984,7 +3085,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1730302635
 SpriteRenderer:
@@ -3130,7 +3231,7 @@ MonoBehaviour:
   danger: 1
   sprite1: {fileID: 21300000, guid: 04a2d40016a6cc44d9224da681ee9a26, type: 3}
   sprite2: {fileID: 21300000, guid: 0db3397b9f011ad48a11f9504d94de3b, type: 3}
-  sonAction: {fileID: 0}
+  sonAction: {fileID: 8300000, guid: b65efe9b20a615a47bf4e6795a3397a1, type: 3}
 --- !u!1 &1785132748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,13 +3700,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a805d1413969b7943bd278978ab23f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 8
   facingRight: 1
   itemHeld: 0
   playerInRoutine: 0
   glassesAtFeet: 0
   manager: {fileID: 2081487875}
-  sonPeur: {fileID: 0}
+  sonPeur: {fileID: 8300000, guid: d2b87c804fe87734790ff60e893beb87, type: 3}
+  sonPorter: {fileID: 8300000, guid: 3d9fb405375b8384a82ca4425f7ccfa6, type: 3}
+  sonPoser: {fileID: 8300000, guid: 4b70caa650cfb2041aad700e2890de8d, type: 3}
+  sonLunettes: {fileID: 8300000, guid: 5a2f01625787aa74a933e0da99c582e1, type: 3}
   realWorld: 1
 --- !u!81 &2063416794
 AudioListener:
@@ -3858,7 +3962,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2082893172
 SpriteRenderer:
@@ -3926,7 +4030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 566175472}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2086374406
 SpriteRenderer:
