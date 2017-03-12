@@ -11,12 +11,11 @@ public class AFGlassesBehaviour : MonoBehaviour {
     public bool facingRight;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         pickable = true;
         droppable = false;
         originPosition = transform.position;
         facingRight = true;
-        eyes = GameObject.Find("Eyes").transform;
     }
 	
 	// Update is called once per frame
@@ -84,7 +83,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
         Debug.Log("I'm flipping ! -Glasses");
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
-        scale.x *= -1;  // here x has to be the horizontal scale
+        scale.y *= -1;  // object is turned so that could be a problem, I replaced x by y (copied from Flip on player)
         transform.localScale = scale;
     }
 }

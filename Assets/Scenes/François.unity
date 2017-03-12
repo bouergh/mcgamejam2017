@@ -1982,7 +1982,7 @@ Transform:
   m_GameObject: {fileID: 1420009555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.62, y: -1.46, z: 0}
-  m_LocalScale: {x: 3, y: 7, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1470840123}
   m_RootOrder: 5
@@ -2180,8 +2180,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1442783297
   m_SortingOrder: -4
-  m_Sprite: {fileID: 21300000, guid: 5b2e070c5b4388b4ab3ac9584ab276b3, type: 3}
-  m_Color: {r: 0.12456748, g: 0.5694785, b: 0.9411765, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8280cb6212d0d6f489e169880f5d6058, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!114 &1420009560
@@ -2196,7 +2196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapAssociated: {fileID: 29741448}
-  activateRange: 3
+  activateRange: 1
+  sprite1: {fileID: 21300000, guid: 8280cb6212d0d6f489e169880f5d6058, type: 3}
+  sprite2: {fileID: 21300000, guid: dbfbe9f3f5f243e42a0ffb9eeb5a3ff0, type: 3}
 --- !u!61 &1420009561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2210,7 +2212,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.99999994}
+  m_Size: {x: 14, y: 14}
 --- !u!1 &1442415166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,6 +3366,7 @@ GameObject:
   - component: {fileID: 2063416792}
   - component: {fileID: 2063416791}
   - component: {fileID: 2063416793}
+  - component: {fileID: 2063416794}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -3476,3 +3479,20 @@ MonoBehaviour:
   glassesAtFeet: 0
   masterMixer: {fileID: 24100000, guid: 92e1b8dbdca4ba443abd7f2b35352af0, type: 2}
   realWorld: 1
+--- !u!95 &2063416794
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063416788}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c31a12a0712370418216f9e716d52c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
