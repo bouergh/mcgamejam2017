@@ -57,8 +57,9 @@ public class FFShowerSwitch : MonoBehaviour
                 trapAssociated.GetComponent<FFTrapBehaviour>().Desactivate();
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite2;
                 isON = false;
-                GetComponent<AudioSource>().Stop();
-                GetComponent<AudioSource>().PlayOneShot(SHOWER_OFF);
+				GetComponents<AudioSource>()[1].Stop();
+				GetComponents<AudioSource>()[2].Stop();
+				GetComponent<AudioSource>().PlayOneShot(SHOWER_OFF);
             } else
             {
                 Debug.Log("switch on the shower");
@@ -66,10 +67,11 @@ public class FFShowerSwitch : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite1;
                 isON = true;
                 GetComponent<AudioSource>().PlayOneShot(SHOWER_OFF);
-                GetComponent<AudioSource>().PlayOneShot(SHOWER);
-            }
+				GetComponents<AudioSource>()[1].Play();
+				GetComponents<AudioSource>()[2].Play();
+			}
         }
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1f);
         lockedInRoutine = false;
     }
 
