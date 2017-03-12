@@ -29,7 +29,9 @@ public class MMObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().playerInRoutine)
+		FFPlayerController controller = GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>();
+
+		if (controller && !controller.playerInRoutine)
         {
             bool pickKey = Input.GetButton("Item");
             if (pickKey && playerCanPick) // if pickUp key is pressed && player is on the object

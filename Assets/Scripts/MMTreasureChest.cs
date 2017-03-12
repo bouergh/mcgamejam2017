@@ -96,7 +96,8 @@ public class MMTreasureChest : MonoBehaviour {
 
     private void OnGUI()
     {
-        if (displayLabel && !GameObject.Find("Player").GetComponent<FFPlayerController>().realWorld) // display chest label when in virtual world
+		FFPlayerController controller = GameObject.Find("Player").GetComponent<FFPlayerController>();
+		if (controller && displayLabel && !controller.realWorld) // display chest label when in virtual world
         {
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
             GUI.Label(new Rect(pos.x, pos.y, Screen.width, Screen.height), "Press [CTRL]");
