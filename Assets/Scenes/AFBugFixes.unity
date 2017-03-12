@@ -3454,8 +3454,9 @@ MonoBehaviour:
   maxSpeed: 4
   facingRight: 1
   itemHeld: 0
+  playerInRoutine: 0
   glassesAtFeet: 0
-  manager: {fileID: 1679064312}
+  manager: {fileID: 1679064314}
   realWorld: 1
 --- !u!81 &2063416794
 AudioListener:

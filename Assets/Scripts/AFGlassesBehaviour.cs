@@ -16,6 +16,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
         droppable = false;
         originPosition = transform.position;
         facingRight = true;
+        eyes = GameObject.Find("Eyes").transform;
     }
 	
 	// Update is called once per frame
