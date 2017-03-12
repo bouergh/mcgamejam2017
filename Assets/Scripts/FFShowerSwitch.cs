@@ -18,6 +18,11 @@ public class FFShowerSwitch : MonoBehaviour
     [SerializeField]
     private Sprite sprite2;
 
+    [SerializeField]
+    private AudioClip SHOWER;
+    [SerializeField]
+    private AudioClip SHOWER_OFF;
+
 
     // Use this for initialization
     void Start()
@@ -52,12 +57,16 @@ public class FFShowerSwitch : MonoBehaviour
                 trapAssociated.GetComponent<FFTrapBehaviour>().Desactivate();
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite2;
                 isON = false;
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().PlayOneShot(SHOWER_OFF);
             } else
             {
                 Debug.Log("switch on the shower");
                 trapAssociated.GetComponent<FFTrapBehaviour>().Activate();
                 gameObject.GetComponent<SpriteRenderer>().sprite = sprite1;
                 isON = true;
+                GetComponent<AudioSource>().PlayOneShot(SHOWER_OFF);
+                GetComponent<AudioSource>().PlayOneShot(SHOWER);
             }
         }
         yield return new WaitForSeconds(0.25f);
