@@ -84,7 +84,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
         Debug.Log("I'm flipping ! -Glasses");
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
-        scale.y *= -1;  // object is turned so that could be a problem, I replaced x by y (copied from Flip on player)
+        scale.x *= -1;
         transform.localScale = scale;
     }
 }
