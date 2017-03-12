@@ -462,7 +462,7 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Collab: 0
+    Collab: 1
     UNet: 1
   cloudProjectId: 2a74e2c5-60ff-4900-ac53-1bef8b1c32fd
   projectName: McGame Jam 2017
