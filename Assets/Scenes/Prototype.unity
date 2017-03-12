@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 687750245}
   m_Layer: 0
   m_Name: Table Rectangle
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1972,6 +1972,7 @@ Transform:
   - {fileID: 2108799071}
   - {fileID: 1268719648}
   - {fileID: 1899978830}
+  - {fileID: 1340719983}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2234,6 +2235,7 @@ GameObject:
   - component: {fileID: 1060666240}
   - component: {fileID: 1060666239}
   - component: {fileID: 1060666241}
+  - component: {fileID: 1060666242}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Item
@@ -2315,6 +2317,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72f2201153138f49a7663b8afeac47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: Table
+  carryZoneName: Shoulders
+--- !u!82 &1060666242
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060666237}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243351559260710896, guid: 92e1b8dbdca4ba443abd7f2b35352af0,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 999c4b5fbb8cdc64d970772043056cbb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1087518084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,6 +2492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72f2201153138f49a7663b8afeac47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: 
+  carryZoneName: Hands
 --- !u!95 &1087518089
 Animator:
   serializedVersion: 3
@@ -2805,6 +2892,34 @@ MonoBehaviour:
   sprite1: {fileID: 21300000, guid: d3082300b6e165e488f126e4f60ffe71, type: 3}
   sprite2: {fileID: 21300000, guid: 78be7a1addab5374aa0dd6e1fcd2ef6d, type: 3}
   sonAction: {fileID: 8300000, guid: 3dca17a0d8c73d64fadf86c992fef44a, type: 3}
+--- !u!1 &1340719982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1340719983}
+  m_Layer: 0
+  m_Name: Shoulders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340719983
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340719982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 812644989}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363731100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3314,7 @@ GameObject:
   - component: {fileID: 1426890403}
   m_Layer: 0
   m_Name: Table Circle
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3228,9 +3343,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.08545017, y: 1.6002922}
+  m_Offset: {x: 0.085449696, y: 1.6002922}
   serializedVersion: 2
-  m_Size: {x: 5.8790464, y: 10.560612}
+  m_Size: {x: 2.419712, y: 10.560612}
 --- !u!212 &1426890402
 SpriteRenderer:
   m_ObjectHideFlags: 0
