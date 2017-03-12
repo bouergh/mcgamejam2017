@@ -142,6 +142,7 @@ public class FFPlayerController : MonoBehaviour
 
     public void Fear()
     {
+        float i,j;
         float move = 2f;
         if (facingRight)
         {
@@ -149,6 +150,5 @@ public class FFPlayerController : MonoBehaviour
         }
         transform.Translate(move, 0, 0);
         GetComponent<AudioSource>().PlayOneShot(sonPeur);
-        
     }
 }

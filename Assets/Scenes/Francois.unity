@@ -2173,7 +2173,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 6.3
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2183,26 +2183,26 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 1
+      time: 0.15873015
+      value: 0.79999995
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.37999994
+      inSlope: -1.1886792
+      outSlope: -1.1886792
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0.82000005
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2214,7 +2214,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.31599998
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2226,7 +2226,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0.87600005
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3609,6 +3609,7 @@ MonoBehaviour:
   sonPeur: {fileID: 8300000, guid: d2b87c804fe87734790ff60e893beb87, type: 3}
   sonPorter: {fileID: 8300000, guid: e0896f3506a59a94cb55f257fa59d470, type: 3}
   sonPoser: {fileID: 8300000, guid: 3d9fb405375b8384a82ca4425f7ccfa6, type: 3}
+  sonLunettes: {fileID: 0}
   realWorld: 1
 --- !u!95 &2063416794
 Animator:
