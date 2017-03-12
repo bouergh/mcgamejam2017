@@ -149,6 +149,14 @@ public class FFPlayerController : MonoBehaviour
         }
         transform.Translate(move, 0, 0);
         GetComponent<AudioSource>().PlayOneShot(sonPeur);
-        
+        StartCoroutine(Freeze());
+    }
+
+    private IEnumerator Freeze()
+    {
+        float previousSpeed = maxSpeed;
+        maxSpeed = 0f;
+        yield return new WaitForSeconds(.5f);
+        maxSpeed = previousSpeed;
     }
 }
