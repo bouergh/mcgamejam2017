@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MMTreasureChest : MonoBehaviour {
 
     private bool switchable;
-    private bool displayLabel;
+    //private bool displayLabel;
     bool lockedInRoutine;
     private IEnumerator coroutine;
     Animator animator;
@@ -16,7 +16,7 @@ public class MMTreasureChest : MonoBehaviour {
     void Start()
     {
         switchable = false;
-        displayLabel = false;
+       // displayLabel = false;
         animator = GetComponent<Animator>();
         manager = GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().manager;
     }
@@ -79,7 +79,7 @@ public class MMTreasureChest : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("player enter chest zone");
-            displayLabel = true;
+           // displayLabel = true;
             switchable = true;
         }
     }
@@ -89,12 +89,12 @@ public class MMTreasureChest : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("player leave chest zone");
-            displayLabel = false;
+            //displayLabel = false;
             switchable = false;
         }
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
 		FFPlayerController controller = GameObject.Find("Player").GetComponent<FFPlayerController>();
 		if (controller && displayLabel && !controller.realWorld) // display chest label when in virtual world
@@ -102,5 +102,5 @@ public class MMTreasureChest : MonoBehaviour {
             Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
             GUI.Label(new Rect(pos.x, pos.y, Screen.width, Screen.height), "Press [CTRL]");
         }
-    }
+    }*/
 }
