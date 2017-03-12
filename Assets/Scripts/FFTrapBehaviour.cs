@@ -5,10 +5,14 @@ using UnityEngine;
 public class FFTrapBehaviour : MonoBehaviour {
 
     public bool danger;
-    
-    
-	//initialisation : au début le danger est actif
-	void Start () {
+    [SerializeField]
+    private Sprite sprite1;
+    [SerializeField]
+    private Sprite sprite2;
+
+
+    //initialisation : au début le danger est actif
+    void Start () {
         danger = true;
 	}
 
@@ -30,10 +34,12 @@ public class FFTrapBehaviour : MonoBehaviour {
     public void Desactivate()
     {
         danger = false;
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprite2;
     }
     //Permet d'activer le piège
     public void Activate()
     {
         danger = true;
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprite1;
     }
 }
