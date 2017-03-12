@@ -11,7 +11,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
     public bool facingRight;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         pickable = true;
         droppable = false;
         originPosition = transform.position;

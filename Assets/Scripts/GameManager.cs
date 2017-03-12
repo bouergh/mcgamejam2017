@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private bool realWorld;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         realWorld = true; //starting in the real world
     }
