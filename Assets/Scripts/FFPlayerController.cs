@@ -3,35 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class FFPlayerController : MonoBehaviour {
+public class FFPlayerController : MonoBehaviour
+{
     [SerializeField]
     private float maxSpeed;
     public bool facingRight = true;
 
     public bool itemHeld = false;
+    public bool playerInRoutine = false;
     public bool glassesAtFeet = false;
 
-    [SerializeField]
-    private GameObject manager;
-
+    public AudioMixer masterMixer;
     Animator animator;
 
     private GameObject glasses;
 
     public bool realWorld = true;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         glasses = GameObject.FindGameObjectWithTag("Glasses");
         animator = GetComponent<Animator>();
         // do something so the player starts in one of the worlds
         realWorld = true;
-
-        StartCoroutine(Begin());
-        
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         //picking glasses
         if (Input.GetButtonDown("Glasses") && !itemHeld)
         {
@@ -47,15 +46,16 @@ public class FFPlayerController : MonoBehaviour {
             }
         }
     }
-    
+
     void FixedUpdate()
     {
         float move = Input.GetAxis("Horizontal");
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        if(move > 0 && !facingRight)
+        if (move > 0 && !facingRight)
         {
             Flip();
-        } else if(move < 0 && facingRight)
+        }
+        else if (move < 0 && facingRight)
         {
             Flip();
         }
@@ -88,8 +88,9 @@ public class FFPlayerController : MonoBehaviour {
     {
         if (glasses.GetComponent<AFGlassesBehaviour>().Picked())
         {
-            realWorld = manager.GetComponent<GameManager>().ChangeWorld();
-            
+            realWorld = false;
+            ChangeWorld(realWorld);
+
         }
 
     }
@@ -99,7 +100,8 @@ public class FFPlayerController : MonoBehaviour {
 
         if (glasses.GetComponent<AFGlassesBehaviour>().Dropped())
         {
-            realWorld = manager.GetComponent<GameManager>().ChangeWorld();
+            realWorld = true;
+            ChangeWorld(realWorld);
         }
     }
 
@@ -115,6 +117,18 @@ public class FFPlayerController : MonoBehaviour {
         Debug.Log("player drop");
     }
 
+    public void RoutineOn()
+    {
+        playerInRoutine = true;
+        Debug.Log("player enter routine");
+    }
+
+    public void RoutineOff()
+    {
+        playerInRoutine = false;
+        Debug.Log("player quit routine");
+    }
+
     public void Fear()
     {
         float move = 2f;
@@ -125,9 +139,37 @@ public class FFPlayerController : MonoBehaviour {
         transform.Translate(move, 0, 0);
     }
 
-    IEnumerator Begin()
+    private void ChangeWorld(bool world)    //true if in the real world, false if not
     {
-        PickGlasses();
-        yield return null;
+        if (world)  //i'll change
+        {
+            // making real world renderers visible and virtual reality ones invisible
+            foreach (SpriteRenderer rend in GameObject.Find("Level").GetComponentsInChildren<SpriteRenderer>())
+            {
+                if (rend.sortingLayerName == "Real World") rend.enabled = true;
+                if (rend.sortingLayerName == "Virtual Reality") rend.enabled = false;
+            }
+            masterMixer.SetFloat("realWorldVol", 0);
+            masterMixer.SetFloat("virtualRealityVol", -80);
+
+            //add something to enable the real world triggers and disable the virtual reality triggers
+        }
+        else
+        {
+            // making real world renderers invisible and virtual reality ones visible
+            foreach (SpriteRenderer rend in GameObject.Find("Level").GetComponentsInChildren<SpriteRenderer>())
+            {
+                if (rend.sortingLayerName == "Real World") rend.enabled = false;
+                if (rend.sortingLayerName == "Virtual Reality") rend.enabled = true;
+            }
+            masterMixer.SetFloat("realWorldVol", -80);
+            masterMixer.SetFloat("virtualRealityVol", 0);
+
+            //add something to enable the real world triggers and disable the virtual reality triggers
+        }
+
+
+
+
     }
 }

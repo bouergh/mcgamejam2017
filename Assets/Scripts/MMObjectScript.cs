@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MMObjectScript : MonoBehaviour {
+public class MMObjectScript : MonoBehaviour
+{
 
     bool isPicked;
     bool playerCanPick;
-    bool lockedInRoutine;
     bool displayLabel;
     private IEnumerator coroutine;
     Vector3 originPosition;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         isPicked = false;
         playerCanPick = false;
-        lockedInRoutine = false;
         displayLabel = false;
         originPosition = transform.position;
     }
@@ -23,41 +23,57 @@ public class MMObjectScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (!lockedInRoutine)
+        if (!GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().playerInRoutine)
         {
             bool pickKey = Input.GetButton("Item");
             if (pickKey && playerCanPick) // if pickUp key is pressed && player is on the object
             {
-                lockedInRoutine = true;
-                coroutine = Pick();
-                StartCoroutine(coroutine);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOn();
+                Debug.Log("lock routine");
+
+                if (isPicked)
+                {
+                    coroutine = Drop();
+                    StartCoroutine(coroutine);
+                }
+                else if (!isPicked && !GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().itemHeld
+                    && GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().realWorld)
+                {
+                    coroutine = Pick();
+                    StartCoroutine(coroutine);
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOff();
+                }
             }
         }
     }
 
     private IEnumerator Pick()
     {
-        if (isPicked)
-        {
-            Debug.Log("drop the object");
-            transform.SetParent(GameObject.Find("Real World").transform);
-            transform.position = new Vector3(transform.position.x, originPosition.y, originPosition.z);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().DropObject();
-            isPicked = false;
-        }
-        // to pick object you must be in real world and not already holding an item
-        else if (!isPicked && !GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().itemHeld && GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().realWorld)
-        {
-            Debug.Log("pick the object");
-            Transform playerHands = GameObject.FindGameObjectWithTag("Player").transform.Find("Hands");
-            transform.SetParent(playerHands);
-            transform.localPosition = Vector3.zero;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().PickObject();
-            isPicked = true;
-            displayLabel = false; // don't display label when object is picked
-        }
+        Debug.Log("pick the object");
+        Transform playerHands = GameObject.FindGameObjectWithTag("Player").transform.Find("Hands");
+        transform.SetParent(playerHands);
+        transform.localPosition = Vector3.zero;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().PickObject();
+        isPicked = true;
+        displayLabel = false; // don't display label when object is picked
         yield return new WaitForSeconds(1f);
-        lockedInRoutine = false;
+        Debug.Log("unlock routine");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOff();
+    }
+
+    private IEnumerator Drop()
+    {
+        Debug.Log("drop the object");
+        transform.SetParent(GameObject.Find("Real World").transform);
+        transform.position = new Vector3(transform.position.x, originPosition.y, originPosition.z);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().DropObject();
+        isPicked = false;
+        yield return new WaitForSeconds(1f);
+        Debug.Log("unlock routine");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOff();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -66,6 +82,7 @@ public class MMObjectScript : MonoBehaviour {
         {
             displayLabel = true;
             playerCanPick = true;
+            Debug.Log("pickable");
         }
     }
 
@@ -75,6 +92,7 @@ public class MMObjectScript : MonoBehaviour {
         {
             displayLabel = false;
             playerCanPick = false;
+            Debug.Log("not pickable");
         }
     }
 
