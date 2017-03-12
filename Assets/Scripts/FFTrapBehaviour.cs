@@ -10,6 +10,8 @@ public class FFTrapBehaviour : MonoBehaviour {
     [SerializeField]
     private Sprite sprite2;
 
+    [SerializeField]
+    private AudioClip sonAction;
 
     //initialisation : au début le danger est actif
     void Start () {
@@ -27,6 +29,7 @@ public class FFTrapBehaviour : MonoBehaviour {
         if (other.gameObject.CompareTag("Player") && danger && !other.gameObject.GetComponent<FFPlayerController>().realWorld)
         {
             other.GetComponent<FFPlayerController>().Fear();
+            GetComponent<AudioSource>().PlayOneShot(sonAction);
             Debug.Log("Peur !");
         }
     }

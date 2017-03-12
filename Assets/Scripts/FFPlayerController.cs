@@ -18,6 +18,10 @@ public class FFPlayerController : MonoBehaviour
 
     private GameObject glasses;
 
+
+    [SerializeField]
+    private AudioClip sonPeur;
+
     public bool realWorld = true;
     // Use this for initialization
     void Start()
@@ -136,5 +140,6 @@ public class FFPlayerController : MonoBehaviour
             move *= -1;
         }
         transform.Translate(move, 0, 0);
+        GetComponent<AudioSource>().PlayOneShot(sonPeur);
     }
 }
