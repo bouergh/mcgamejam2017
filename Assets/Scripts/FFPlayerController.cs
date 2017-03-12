@@ -159,4 +159,11 @@ public class FFPlayerController : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         maxSpeed = previousSpeed;
     }
+
+    public void EndGame()
+    {
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        animator.SetBool("Move", false);
+        Destroy(this);
+    }
 }
