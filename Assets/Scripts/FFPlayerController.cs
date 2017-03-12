@@ -21,6 +21,10 @@ public class FFPlayerController : MonoBehaviour
 
     [SerializeField]
     private AudioClip sonPeur;
+    [SerializeField]
+    private AudioClip sonPorter;
+    [SerializeField]
+    private AudioClip sonPoser;
 
     public bool realWorld = true;
     // Use this for initialization
@@ -111,12 +115,14 @@ public class FFPlayerController : MonoBehaviour
     public void PickObject()
     {
         itemHeld = true;
+        GetComponent<AudioSource>().PlayOneShot(sonPorter);
         Debug.Log("player pick");
     }
 
     public void DropObject()
     {
         itemHeld = false;
+        GetComponent<AudioSource>().PlayOneShot(sonPoser);
         Debug.Log("player drop");
     }
 
