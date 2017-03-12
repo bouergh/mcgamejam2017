@@ -10,13 +10,16 @@ public class AFGlassesBehaviour : MonoBehaviour {
     private Vector2 originPosition;
     public bool facingRight;
 
-	// Use this for initialization
-	void Awake () {
+    Animator playerInstructionAnim;
+
+    // Use this for initialization
+    void Awake () {
         pickable = true;
         droppable = false;
         originPosition = transform.position;
         facingRight = true;
         eyes = GameObject.Find("Eyes").transform;
+        playerInstructionAnim = GameObject.Find("Instruction").GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -70,6 +73,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
             collision.GetComponent<FFPlayerController>().glassesAtFeet = true;
             //Debug.Log("glasses are down here !"); //replace by "showing the button to pick up glasses"
             eyes = collision.transform.FindChild("Eyes");
+            playerInstructionAnim.SetTrigger("YesGlasses");
         }
     }
 
@@ -77,6 +81,7 @@ public class AFGlassesBehaviour : MonoBehaviour {
     {
         if (!droppable && collision.tag == "Player") collision.GetComponent<FFPlayerController>().glassesAtFeet = false;
         //Debug.Log("glasses are not down there anymore !"); //replace by "hiding the button to pick up glasses"
+        playerInstructionAnim.SetTrigger("NoGlasses");
     }
 
     public void FlipGlasses()

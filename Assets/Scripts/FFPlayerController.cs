@@ -29,6 +29,9 @@ public class FFPlayerController : MonoBehaviour
     private AudioClip sonLunettes;
 
     public bool realWorld = true;
+
+    Animator instructionAnim;
+
     // Use this for initialization
     void Start()
     {
@@ -36,7 +39,7 @@ public class FFPlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         // do something so the player starts in one of the worlds
         realWorld = true;
-
+        instructionAnim = GameObject.Find("Instruction").GetComponent<Animator>();
         PickGlasses();
     }
 
@@ -101,6 +104,7 @@ public class FFPlayerController : MonoBehaviour
         if (glasses.GetComponent<AFGlassesBehaviour>().Picked())
         {
             realWorld = manager.ChangeWorld();
+            instructionAnim.SetBool("GlassesOn", true);
         }
 
     }
@@ -111,6 +115,7 @@ public class FFPlayerController : MonoBehaviour
         if (glasses.GetComponent<AFGlassesBehaviour>().Dropped())
         {
             realWorld = manager.ChangeWorld();
+            instructionAnim.SetBool("GlassesOn", false);
         }
     }
 

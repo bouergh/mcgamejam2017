@@ -11,6 +11,7 @@ public class MMObjectScript : MonoBehaviour
     private IEnumerator coroutine;
     Vector3 originPosition;
     Animator animator;
+    Animator playerInstructionAnim;
 
     // Use this for initialization
     void Start()
@@ -24,6 +25,7 @@ public class MMObjectScript : MonoBehaviour
         {
             animator.SetBool("isPicked", false);
         }
+        playerInstructionAnim = GameObject.Find("Instruction").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,7 +72,8 @@ public class MMObjectScript : MonoBehaviour
         {
             animator.SetBool("isPicked", true);
         }
-        displayLabel = false; // don't display label when object is picked
+        //displayLabel = false; // don't display label when object is picked
+        playerInstructionAnim.SetTrigger("NoItem");
         yield return new WaitForSeconds(1f);
         Debug.Log("unlock routine");
         GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOff();
@@ -96,7 +99,8 @@ public class MMObjectScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            displayLabel = true;
+            //displayLabel = true;
+            playerInstructionAnim.SetTrigger("YesItem");
             playerCanPick = true;
             Debug.Log("pickable");
         }
@@ -106,7 +110,8 @@ public class MMObjectScript : MonoBehaviour
     {
         if (!isPicked && other.gameObject.CompareTag("Player"))
         {
-            displayLabel = false;
+            //displayLabel = false;
+            playerInstructionAnim.SetTrigger("NoItem");
             playerCanPick = false;
             Debug.Log("not pickable");
         }
