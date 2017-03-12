@@ -7,6 +7,7 @@ public class FFPlayerController : MonoBehaviour
 {
     [SerializeField]
     private float maxSpeed;
+    private float hardMaxSpeed;
     public bool facingRight = true;
 
     public bool itemHeld = false;
@@ -41,6 +42,7 @@ public class FFPlayerController : MonoBehaviour
         realWorld = true;
         instructionAnim = GameObject.Find("Instruction").GetComponent<Animator>();
         PickGlasses();
+        hardMaxSpeed = maxSpeed;
     }
 
     // Update is called once per frame
@@ -65,7 +67,7 @@ public class FFPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float move = Input.GetAxis("Horizontal");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(move * hardMaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
         if (move > 0 && !facingRight)
         {
             Flip();
@@ -163,10 +165,9 @@ public class FFPlayerController : MonoBehaviour
 
     private IEnumerator Freeze()
     {
-        float previousSpeed = maxSpeed;
-        maxSpeed = 0f;
+        hardMaxSpeed = 0f;
         yield return new WaitForSeconds(.5f);
-        maxSpeed = previousSpeed;
+        hardMaxSpeed = maxSpeed;
     }
 
     public void EndGame()
