@@ -1033,6 +1033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danger: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
 --- !u!82 &701233459
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2576,6 +2578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danger: 1
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
 --- !u!1 &1516089326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,6 +2923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   danger: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
 --- !u!1 &1785132748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3418,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063416788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.82, y: -2.91, z: 0}
+  m_LocalPosition: {x: 12.77, y: -3.01, z: 0}
   m_LocalScale: {x: 0.35442737, y: 0.70885473, z: 0.17721368}
   m_Children:
   - {fileID: 716843101}
@@ -3736,6 +3742,7 @@ GameObject:
   - component: {fileID: 2086374407}
   - component: {fileID: 2086374409}
   - component: {fileID: 2086374410}
+  - component: {fileID: 2086374411}
   m_Layer: 0
   m_Name: Treasure Chest
   m_TagString: Untagged
@@ -3750,7 +3757,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086374404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.77, y: -1.13, z: 0}
+  m_LocalPosition: {x: 15.59, y: -3.45, z: 0}
   m_LocalScale: {x: 0.3062637, y: 0.30626366, z: 0.15313183}
   m_Children: []
   m_Father: {fileID: 566175472}
@@ -3984,3 +3991,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2086374411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086374404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4030fccab35f6984fb8090d05987bf72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
