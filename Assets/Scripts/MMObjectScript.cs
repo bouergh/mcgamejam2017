@@ -10,6 +10,7 @@ public class MMObjectScript : MonoBehaviour
     bool displayLabel;
     private IEnumerator coroutine;
     Vector3 originPosition;
+    Animator animator;
 
     // Use this for initialization
     void Start()
@@ -18,6 +19,11 @@ public class MMObjectScript : MonoBehaviour
         playerCanPick = false;
         displayLabel = false;
         originPosition = transform.position;
+        animator = GetComponent<Animator>();
+        if (animator) // check is there is an animator for this object
+        {
+            animator.SetBool("isPicked", false);
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +64,10 @@ public class MMObjectScript : MonoBehaviour
         transform.localPosition = Vector3.zero;
         GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().PickObject();
         isPicked = true;
+        if(animator) // check is there is an animator for this object
+        {
+            animator.SetBool("isPicked", true);
+        }
         displayLabel = false; // don't display label when object is picked
         yield return new WaitForSeconds(1f);
         Debug.Log("unlock routine");
@@ -71,6 +81,10 @@ public class MMObjectScript : MonoBehaviour
         transform.position = new Vector3(transform.position.x, originPosition.y, originPosition.z);
         GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().DropObject();
         isPicked = false;
+        if (animator) // check is there is an animator for this object
+        {
+            animator.SetBool("isPicked", false);
+        }
         yield return new WaitForSeconds(1f);
         Debug.Log("unlock routine");
         GameObject.FindGameObjectWithTag("Player").GetComponent<FFPlayerController>().RoutineOff();
